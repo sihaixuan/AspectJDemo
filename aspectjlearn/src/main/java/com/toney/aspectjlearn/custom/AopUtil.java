@@ -52,4 +52,22 @@ public class AopUtil {
         String msg = e.getMessage();
         Log.e(TAG,"catchExceptionMethod : " + msg);
     }
+
+    /**
+     * 内部类和匿名内部类 切入
+     *
+     * com.toney.aspectjlearn.custom.CustomPointCutActivity$1.onClick(*) 指定具体完整类名 指定方法
+     * com.toney.aspectjlearn.custom.CustomPointCutActivity*.*.onClick(*) 指定类名前缀
+     * com.toney.aspectjlearn.custom.CustomPointCutActivity*.onClick(*) 指定接口名前缀（注意）
+     * com.toney.aspectjlearn.custom..*.onClick(*) 指定包名下及其子包名下 任何类 指定方法
+     *
+     *
+    */
+    @Before("execution(* com.toney.aspectjlearn.custom.CustomPointCutActivity$1.onClick(*)) || execution(* com.toney.aspectjlearn.custom.CustomPointCutActivity.testAop4())")
+    public void innerClassMethodBefore(JoinPoint point){
+        String key = point.getSignature().toString();
+        Log.e(TAG, "innerClassMethodBefore: " + key);
+    }
+
+
 }

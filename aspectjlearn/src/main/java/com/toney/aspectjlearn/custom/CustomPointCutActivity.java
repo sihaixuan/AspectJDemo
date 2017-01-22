@@ -4,14 +4,17 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.toney.aspectjlearn.R;
+import com.toney.aspectjlearn.custom.runtime.MethodRunTime;
 
 /**
  * Created by toney on 2017/1/20.
  */
 
 public class CustomPointCutActivity extends Activity {
+    @MethodRunTime
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +23,15 @@ public class CustomPointCutActivity extends Activity {
         testAop1();
         testAop2();
 //        testExceptionAop();
+        findViewById(R.id.btn1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(CustomPointCutActivity.this,"onclick",Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+        testAop4();
     }
 
 
@@ -45,6 +57,10 @@ public class CustomPointCutActivity extends Activity {
     public void testExceptionAop(){
         View view = null;
         view.animate();
+
+    }
+
+    public void testAop4(){
 
     }
 }

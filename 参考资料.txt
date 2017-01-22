@@ -1,1 +1,18 @@
 1.看AspectJ在Android中的强势插入 https://zhuanlan.zhihu.com/p/24876611
+2.AOP 实现的原理简析 http://www.cnblogs.com/dyllove98/archive/2013/07/17/3196587.html
+3 Spring 之AOP AspectJ切入点语法详解（最全面、最详细。） http://blog.csdn.net/zhengchao1991/article/details/53391244
+
+
+思考：
+    1.只能成员方法做切面？ 内部类，和 匿名内部类了？
+      内部类，匿名内部类 生成的class 文件以单独文件存在的
+    2.aop 是否影响性能
+      对性能不会有影响  是编译期插入的
+    3.是否会引起内存泄露
+    4.正式没有hook入成功，需要考虑混淆问题。
+
+AOP实践遐想:
+    1)方法执行时间
+    2）动态权限管理 android M 权限管理跟具体场景有一定耦合。
+    3）基于aop的业务数据埋点
+    4）基于AOP的性能监控系统
